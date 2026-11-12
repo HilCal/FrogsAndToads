@@ -26,7 +26,7 @@ namespace FrogToad {
 
 			Color cellBackColour{ WHITE };
 
-			if (i == model.GetSelectedCell()) {
+			if (i == BoardLayout::cellAt(GetMousePosition())){
 				cellBackColour = YELLOW;
 			}
 

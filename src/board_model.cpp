@@ -1,13 +1,6 @@
 #include "board_model.hpp"
 
 namespace FrogToad {
-    void BoardModel::SetSelectedCell(int index) {
-        selectedCell = index;
-    }
-
-    int BoardModel::GetSelectedCell() const{
-        return selectedCell;
-    }
 
     void BoardModel::reset() {
         board = StartingBoard;

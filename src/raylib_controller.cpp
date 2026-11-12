@@ -10,13 +10,6 @@ namespace FrogToad {
 		
 		int keyPressed{ GetKeyPressed()};
 
-		if (BoardLayout::cellAt(GetMousePosition())) {
-			model.SetSelectedCell(*BoardLayout::cellAt(GetMousePosition()));
-		}
-		else {
-			model.SetSelectedCell(-1);
-		}
-
 		if (IsMouseButtonPressed(0)) {
 			if (BoardLayout::cellAt(GetMousePosition())) {
 				model.tryMove(*BoardLayout::cellAt(GetMousePosition()));
