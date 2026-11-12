@@ -5,6 +5,7 @@
 #include "raylib_view.hpp"
 #include "raylib.h"
 
+
 namespace FrogToad {
     /** @brief Run the console game with the ANSI View, drawing before each blocking input call. */
     int runConsole() {

@@ -4,40 +4,43 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{E9C7FDCE-D52A-8D73-7EB0-C5296AF258F6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{21EB8090-0D4E-1035-B6D3-48EBA215DCB7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game Resource Files">
       <UniqueIdentifier>{BAF00917-2652-E724-AFBF-2DD71B201EE4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Windows Resource Files">
       <UniqueIdentifier>{6B659E97-575F-C7E9-40CC-5DFA2C652D56}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game Resource Files\Header Files">
+      <UniqueIdentifier>{21EB8090-0D4E-1035-B6D3-48EBA215DCB7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ansi_view.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\board_model.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\console_controller.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\console_view.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\interfaces.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\raylib_controller.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\raylib_view.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\resource_dir.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game Resource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\board_layout.hpp">
+      <Filter>Game Resource Files\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +63,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\raylib_view.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\board_layout.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
