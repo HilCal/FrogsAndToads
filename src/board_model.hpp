@@ -52,7 +52,7 @@ namespace FrogToad {
         // A getter for the selected cell value
 
     private:
-        int selectedCell;
+        int selectedCell{-1};
 
         //----------
 
