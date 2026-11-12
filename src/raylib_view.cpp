@@ -4,11 +4,11 @@
 namespace FrogToad {
 
 	void RaylibView::draw(const BoardModel& model) {
-		
+
 		static constexpr float winHeight{ BoardLayout::windowH };
 		static constexpr float winWidth{ BoardLayout::windowW };
 		
-		float leftMargin {BoardLayout::Left};
+		float margin {BoardLayout::Left}; 
 		float topMargin{ BoardLayout::Top };
 		float cellSize{ BoardLayout::CellSize };
 
@@ -18,16 +18,23 @@ namespace FrogToad {
 		float fontSize{ 60 };
 		
 		ClearBackground(DARKBLUE);
-		DrawText("FROGS & TOADS", leftMargin, leftMargin, fontSize*2, BLACK);
-		DrawText("1-7 = Move & R = Restart", leftMargin, leftMargin + fontSize*2, fontSize, BLACK);
+		DrawText("FROGS & TOADS", margin, margin, fontSize*2, BLACK);
+		DrawText("1-7 = Move & R = Restart", margin, margin + fontSize*2, fontSize, BLACK);
 
 		// TODO: Draw the board and game status.
 		for (int i{ 0 };i < model.BoardSize; i++) {// Draw Board Start
-			Rectangle rect{ i * cellSize + leftMargin ,topMargin,cellSize,cellSize };
-			DrawRectangle(rect.x + cellThickness, rect.y + cellThickness, cellSize - cellThickness * 2, cellSize - cellThickness * 2, WHITE);
+
+			Color cellBackColour{ WHITE };
+
+			if (i == model.GetSelectedCell()) {
+				cellBackColour = YELLOW;
+			}
+
+			Rectangle rect{ i * cellSize + margin ,topMargin,cellSize,cellSize };
+			DrawRectangle(rect.x + cellThickness, rect.y + cellThickness, cellSize - cellThickness * 2, cellSize - cellThickness * 2, cellBackColour);
 			DrawRectangleLinesEx(rect, cellThickness,BLACK);
 
-			Vector2 Centre{ i * cellSize + leftMargin + cellSize/2, topMargin + cellSize / 2 };
+			Vector2 Centre{ i * cellSize + margin + cellSize/2, topMargin + cellSize / 2 };
 			switch (model.cellAt(i)) {
 				case BoardModel::Cell::Empty:
 					//Draw nothing as nothing is here. 
@@ -59,16 +66,16 @@ namespace FrogToad {
 					break;
 			}
 		}// Draw Board End
-		DrawText("   1      2     3     4      5     6     7     ", leftMargin, topMargin*2 - leftMargin - fontSize*1.8, fontSize, BLACK);
+		DrawText("   1      2     3     4      5     6     7     ", margin, topMargin*2 - margin - fontSize*1.8, fontSize, BLACK);
 			
 		if (model.state() == BoardModel::GameState::Solved) {
-			DrawText("Solved! R to restart.", leftMargin, topMargin*2 - leftMargin - fontSize +5, fontSize, YELLOW);
+			DrawText("Solved! R to restart.", margin, topMargin*2 - margin - fontSize +5, fontSize, YELLOW);
 		}
 		else if (model.state() == BoardModel::GameState::Lost) {
-			DrawText("You Lost! R to restart.", leftMargin, topMargin*2 - leftMargin - fontSize + 5, fontSize, RED);
+			DrawText("You Lost! R to restart.", margin, topMargin*2 - margin - fontSize + 5, fontSize, RED);
 		}
 		else {
-			DrawText("Choose a piece to move.", leftMargin, topMargin*2 - leftMargin - fontSize + 5, fontSize, BLACK);
+			DrawText("Choose a piece to move.", margin, topMargin*2 - margin - fontSize + 5, fontSize, BLACK);
 		}
 
 	}

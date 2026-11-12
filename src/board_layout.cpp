@@ -22,14 +22,19 @@ namespace FrogToad {
 
     std::optional<int> BoardLayout::cellAt(Vector2 point) {
         // TODO by You. 
+        //Checks if the point is wtihin the bounds of the rectangle by comparing it to the bounds of the rectangle.
         if (point.x > board(BoardModel::BoardSize).x &&
             point.x < board(BoardModel::BoardSize).x + board(BoardModel::BoardSize).width &&
             point.y > board(BoardModel::BoardSize).y &&
             point.y < board(BoardModel::BoardSize).y + board(BoardModel::BoardSize).height) {
-            if (((int)point.x - (int)Left - (int)cellThickness)% (int)CellSize < CellSize - cellThickness*2) {
+
+            //Ignore the gaps between the cells using the cell thickness and a modulus equation
+            //To ignore not count the gaps as inside of the board.
+            if (((int)point.x - (int)Left - (int)cellThickness) % (int)CellSize < CellSize - cellThickness * 2) {
+                //returns the truncated value of the mouse/cell size,
+                //this value corresponds to the index of the current cell within its array
                 return (int)(point.x - Left) / (CellSize);
             }
-            
         }
 
 

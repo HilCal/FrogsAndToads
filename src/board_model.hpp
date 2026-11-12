@@ -39,7 +39,23 @@ namespace FrogToad {
          */
         bool tryMove(int index);
 
+
+        //------*Note* I do not know if we were not to touch the model at all for this assignment,
+        // so I am sectioning it off. I am also unsure if the model is the correct for something like this aswell.
+        void SetSelectedCell(int index);
+        /*
+            Saves the input index as the "selected cell"
+            Currently used for the raylib implementation but could also be used in other controller/view setups
+            EX: a console view with a cursor that you move around with the arrow keys to select which piece to move
+        */
+        int GetSelectedCell() const;
+        // A getter for the selected cell value
+
     private:
+        int selectedCell;
+
+        //----------
+
         static constexpr std::array<Cell, BoardSize> StartingBoard{ Cell::Frog, Cell::Frog, Cell::Frog, Cell::Empty, Cell::Toad, Cell::Toad, Cell::Toad };
         
         static constexpr std::array<Cell, BoardSize> GoalBoard{ Cell::Toad, Cell::Toad, Cell::Toad, Cell::Empty, Cell::Frog, Cell::Frog, Cell::Frog };
